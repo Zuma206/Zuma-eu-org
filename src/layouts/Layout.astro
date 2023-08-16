@@ -1,0 +1,20 @@
+---
+const { title, icon, iconType } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type={iconType ?? "image/svg+xml"}
+      href={icon ?? "/favicon.svg"}
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ?? "Document"}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
