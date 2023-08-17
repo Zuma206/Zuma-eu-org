@@ -10,7 +10,7 @@ type Props = PropsWithChildren & {
 export default function Card({ children, id, previousId, nextId }: Props) {
   return (
     <div
-      className="w-full h-screen flex flex-col justify-evenly items-center"
+      className="w-full h-screen flex flex-col justify-evenly items-center snap-start"
       id={id}
     >
       {previousId ? <CardArrow id={previousId} direction="up" /> : <div />}

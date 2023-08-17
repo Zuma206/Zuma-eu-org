@@ -1,8 +1,8 @@
 ---
-const { title, icon, iconType } = Astro.props;
+const { title, icon, iconType, snap } = Astro.props;
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="en" class={`scroll-smooth ${snap ? "snap-y snap-mandatory" : ""}`}>
   <head>
     <meta charset="utf-8" />
     <link
