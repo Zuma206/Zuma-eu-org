@@ -4,7 +4,7 @@ import background from "@assets/bg.svg";
 export default function Background({ children }: PropsWithChildren) {
   return (
     <section
-      className="w-full bg-zinc-950 overflow-scroll"
+      className="w-full bg-zinc-950"
       style={{
         backgroundImage: `url(${background})`,
         backgroundSize: "100% auto",

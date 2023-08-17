@@ -14,7 +14,7 @@ import { EnvelopeFill } from "react-bootstrap-icons";
 
 <Layout>
   <Background>
-    <Card>
+    <Card id="landing" nextId="contact">
       <Title>Hi, I'm Zuma 👋</Title>
       <Text>Web developer & computer science student</Text>
       <div class="my-4 flex items-center gap-2">
@@ -26,7 +26,7 @@ import { EnvelopeFill } from "react-bootstrap-icons";
         <Social tooltip="Email" href="#contact"><EnvelopeFill /></Social>
       </div>
     </Card>
-    <Card>
+    <Card id="contact" previousId="landing">
       <Title>Contact</Title>
     </Card>
   </Background>
