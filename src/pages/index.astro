@@ -3,12 +3,28 @@ import Layout from "@layouts/Layout.astro";
 import Background from "@components/Background";
 import Card from "@components/Card";
 import Title from "@components/Title";
+import Text from "@components/Text";
+import Social from "@components/Social";
+
+import { Github } from "react-bootstrap-icons";
+import { Discord } from "react-bootstrap-icons";
+import { Newspaper } from "react-bootstrap-icons";
+import { EnvelopeFill } from "react-bootstrap-icons";
 ---
 
 <Layout>
   <Background>
     <Card>
-      <Title>Hi, I'm Zuma</Title>
+      <Title>Hi, I'm Zuma 👋</Title>
+      <Text>Web developer & computer science student</Text>
+      <div class="my-4 flex items-center gap-2">
+        <Social tooltip="Github" href="https://github.com/zuma206">
+          <Github />
+        </Social>
+        <Social tooltip="Discord" href="#contact"><Discord /></Social>
+        <Social tooltip="Blog" href="/blog"><Newspaper /></Social>
+        <Social tooltip="Email" href="#contact"><EnvelopeFill /></Social>
+      </div>
     </Card>
   </Background>
 </Layout>
