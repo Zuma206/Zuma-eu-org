@@ -7,16 +7,21 @@ import Text from "@components/Text";
 import Social from "@components/Social";
 import ContactType from "@components/ContactType";
 import Copyable from "@components/Copyable";
+import RepositoryList from "@components/RepositoryList";
 
 import { Github } from "react-bootstrap-icons";
 import { Discord } from "react-bootstrap-icons";
 import { Newspaper } from "react-bootstrap-icons";
 import { EnvelopeFill } from "react-bootstrap-icons";
+
+import { fetchRepos } from "@lib/index";
+
+const repos = await fetchRepos();
 ---
 
 <Layout snap>
   <Background>
-    <Card id="landing" nextId="contact">
+    <Card id="landing" nextId="github">
       <Title>Hi, I'm Zuma 👋</Title>
       <Text>Web developer & computer science student</Text>
       <div class="my-4 flex items-center gap-2">
@@ -28,7 +33,13 @@ import { EnvelopeFill } from "react-bootstrap-icons";
         <Social tooltip="Email" href="#contact"><EnvelopeFill /></Social>
       </div>
     </Card>
-    <Card id="contact" previousId="landing">
+
+    <Card id="github" previousId="landing" nextId="contact">
+      <Title>Github Projects</Title>
+      <RepositoryList client:visible defaultRepos={repos} />
+    </Card>
+
+    <Card id="contact" previousId="github">
       <div class="flex flex-col gap-3">
         <Title>Contact</Title>
         <div class="flex flex-col gap-1">
