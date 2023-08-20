@@ -9,10 +9,12 @@ import ContactType from "@components/ContactType";
 import Copyable from "@components/Copyable";
 import RepositoryList from "@components/RepositoryList";
 
-import { Github } from "react-bootstrap-icons";
-import { Discord } from "react-bootstrap-icons";
-import { Newspaper } from "react-bootstrap-icons";
-import { EnvelopeFill } from "react-bootstrap-icons";
+import {
+  Github,
+  Discord,
+  Newspaper,
+  EnvelopeFill,
+} from "react-bootstrap-icons";
 
 import { fetchRepos } from "@lib/index";
 
@@ -44,11 +46,13 @@ const repos = await fetchRepos();
         <Title>Contact</Title>
         <div class="flex flex-col gap-1">
           <Text>
-            <ContactType>Email:</ContactType>
+            <ContactType>
+              <EnvelopeFill className="inline" /> Email:
+            </ContactType>
             <Copyable client:visible text="zuma@zuma.eu.org" email />
           </Text>
           <Text>
-            <ContactType>Discord:</ContactType>
+            <ContactType><Discord className="inline" /> Discord:</ContactType>
             <Copyable client:visible text="zu.ma" />
           </Text>
         </div>
