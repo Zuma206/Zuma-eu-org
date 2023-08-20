@@ -1,6 +1,7 @@
 ---
 import BlogLayout from "@layouts/BlogLayout.astro";
 import type { GetStaticPaths } from "astro";
+import Article from "@components/Article";
 
 export const getStaticPaths: GetStaticPaths = () => {
   return [{ params: { slug: "slug" } }];
@@ -8,23 +9,5 @@ export const getStaticPaths: GetStaticPaths = () => {
 ---
 
 <BlogLayout>
-  <div>
-    <div class="flex flex-col gap-5 my-5">
-      <h1 class="text-4xl">Article title</h1>
-      <a
-        href="/blog/whatever"
-        class="outline outline-gray-200 outline-1 text-sm rounded-full max-w-fit px-2 py-1"
-      >
-        Web
-      </a>
-    </div>
-    <div class="prose prose-invert">
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti,
-        iusto culpa ab quidem voluptas quam natus excepturi deserunt voluptate
-        voluptatem architecto exercitationem porro? Sapiente itaque odio velit,
-        minima obcaecati excepturi!
-      </p>
-    </div>
-  </div>
+  <Article />
 </BlogLayout>
