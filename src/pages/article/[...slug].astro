@@ -18,7 +18,7 @@ if (!article) throw Error("getStaticPaths mismatch for articles");
 const { Content } = await article.render();
 ---
 
-<BlogLayout>
+<BlogLayout back="/blog">
   <Article article={article.data}>
     <Content />
   </Article>
