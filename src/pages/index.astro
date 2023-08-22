@@ -37,7 +37,7 @@ const email = atob("enVtYUB6dW1hLmV1Lm9yZw==");
       <Title>Hi, I'm <CoolText>Zuma</CoolText> 👋</Title>
       <Text>Web developer & computer science student</Text>
       <div class="my-4 flex items-center gap-2">
-        <Social tooltip="Github" href="https://github.com/zuma206">
+        <Social tooltip="Github" href="#github">
           <Github />
         </Social>
         <Social tooltip="Discord" href="#contact"><Discord /></Social>
@@ -48,6 +48,10 @@ const email = atob("enVtYUB6dW1hLmV1Lm9yZw==");
 
     <Card id="github" previousId="landing" nextId="contact">
       <Title>Github Projects</Title>
+      <a
+        href="https://github.com/zuma206"
+        class="opacity-95 hover:opacity-75 transition">Open Github Profile</a
+      >
       <RepositoryList client:visible defaultRepos={repos} />
     </Card>
 
