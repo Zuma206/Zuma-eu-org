@@ -19,7 +19,9 @@ const { Content } = await article.render();
 ---
 
 <BlogLayout back="/blog">
-  <Article article={article.data}>
-    <Content />
-  </Article>
+  <div class="mb-20">
+    <Article article={article.data}>
+      <Content />
+    </Article>
+  </div>
 </BlogLayout>

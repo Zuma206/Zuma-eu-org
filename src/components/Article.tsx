@@ -18,7 +18,9 @@ export default function Article({ children, article, sm }: Props) {
           </h1>
           <div className="flex gap-2">
             {article.tags.map((tag, index) => (
-              <BlogTag key={index}>{tag}</BlogTag>
+              <BlogTag href={`/blog?tag=${encodeURI(tag)}`} key={index}>
+                {tag}
+              </BlogTag>
             ))}
           </div>
         </div>

@@ -1,10 +1,26 @@
-import type { PropsWithChildren } from "react";
+import { useState, type PropsWithChildren, useEffect } from "react";
+import { useStore } from "@nanostores/react";
+import { searchTextAtom } from "@lib/search";
 
 type Props = PropsWithChildren & {
   slug?: string;
+  text: string;
+  tags: string[];
 };
 
-export default function Preview({ children, slug }: Props) {
+export default function Preview({ children, slug, text, tags }: Props) {
+  const searchText = useStore(searchTextAtom);
+  const [tag, setTag] = useState<string | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tagParam = params.get("tag");
+    setTag(tagParam);
+  }, []);
+
+  if (!text.toLowerCase().includes(searchText.toLowerCase())) return null;
+  if (tag && !tags.includes(tag)) return null;
+
   return (
     <div
       onClick={(e) => {
