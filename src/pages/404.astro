@@ -1,0 +1,24 @@
+---
+import Background from "@components/Background";
+import Card from "@components/Card";
+import Title from "@components/Title";
+import Layout from "@layouts/Layout.astro";
+
+import favicon from "@assets/error.svg";
+---
+
+<Layout
+  title="Page not found"
+  icon={favicon}
+  description="This page doesn't exist"
+>
+  <Background>
+    <Card>
+      <Title>404 - Page not found</Title>
+      <img src="" />
+      <a class="opacity-90 hover:opacity-75 transition text-xl" href="/"
+        >Return home</a
+      >
+    </Card>
+  </Background>
+</Layout>
