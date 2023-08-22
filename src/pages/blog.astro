@@ -4,16 +4,25 @@ import BlogLayout from "@layouts/BlogLayout.astro";
 import Preview from "@components/Preview";
 import SearchFunction from "@components/SearchFunction";
 import TagAlert from "@components/TagAlert";
+import CoolText from "@components/CoolText";
+
 import { getCollection } from "astro:content";
+
+import favicon from "@assets/newspaper.svg";
 
 const articles = await getCollection("articles");
 ---
 
-<BlogLayout back="/">
+<BlogLayout
+  title="Zuma's Blog"
+  description="A blog containing random information that you may or may not find helpful"
+  back="/"
+  icon={favicon}
+>
   <div class="flex justify-center">
     <div class="flex flex-col gap-5 my-5 items-center max-w-lg">
       <div class="flex items-center w-full gap-3">
-        <h1 class="text-4xl font-black">Zuma's Blog</h1>
+        <h1 class="text-4xl font-black"><CoolText>Zuma's</CoolText> Blog</h1>
         <SearchFunction client:load />
       </div>
       <p class="w-full">

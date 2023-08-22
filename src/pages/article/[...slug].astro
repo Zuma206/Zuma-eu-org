@@ -5,6 +5,8 @@ import Article from "@components/Article";
 import { getCollection } from "astro:content";
 import { getEntry } from "astro:content";
 
+import favicon from "@assets/article.svg";
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const articles = await getCollection("articles");
   return articles.map((article) => ({
@@ -16,9 +18,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const article = await getEntry("articles", Astro.props.slug);
 if (!article) throw Error("getStaticPaths mismatch for articles");
 const { Content } = await article.render();
+
+const description = `Tags:${article.data.tags
+  .map((tag) => ` ${tag}`)
+  .toString()}. ${article.body.slice(0, 100)}`;
 ---
 
-<BlogLayout back="/blog">
+<BlogLayout
+  title={article.data.title}
+  icon={favicon}
+  description={description}
+  back="/blog"
+>
   <div class="mb-20">
     <Article article={article.data}>
       <Content />

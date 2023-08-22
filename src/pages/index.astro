@@ -8,6 +8,7 @@ import Social from "@components/Social";
 import ContactType from "@components/ContactType";
 import Copyable from "@components/Copyable";
 import RepositoryList from "@components/RepositoryList";
+import CoolText from "@components/CoolText";
 
 import {
   Github,
@@ -16,15 +17,22 @@ import {
   EnvelopeFill,
 } from "react-bootstrap-icons";
 
+import favicon from "@assets/house.svg";
+
 import { fetchRepos } from "@lib/index";
 
 const repos = await fetchRepos();
 ---
 
-<Layout snap>
+<Layout
+  snap
+  title="Zuma.eu.org"
+  icon={favicon}
+  description="Hi, I'm Zuma, a web developer and computer science student"
+>
   <Background>
     <Card id="landing" nextId="github">
-      <Title>Hi, I'm Zuma 👋</Title>
+      <Title>Hi, I'm <CoolText>Zuma</CoolText> 👋</Title>
       <Text>Web developer & computer science student</Text>
       <div class="my-4 flex items-center gap-2">
         <Social tooltip="Github" href="https://github.com/zuma206">
