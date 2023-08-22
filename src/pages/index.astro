@@ -20,8 +20,10 @@ import {
 import favicon from "@assets/house.svg";
 
 import { fetchRepos } from "@lib/index";
+import Email from "@components/Email";
 
 const repos = await fetchRepos();
+const email = atob("enVtYUB6dW1hLmV1Lm9yZw==");
 ---
 
 <Layout
@@ -57,7 +59,7 @@ const repos = await fetchRepos();
             <ContactType>
               <EnvelopeFill className="inline" /> Email:
             </ContactType>
-            <Copyable client:visible text="zuma@zuma.eu.org" email />
+            <Email email={email} client:visible />
           </Text>
           <Text>
             <ContactType><Discord className="inline" /> Discord:</ContactType>
