@@ -1,0 +1,25 @@
+---
+import BlogLayout from "@layouts/BlogLayout.astro";
+import type { GetStaticPaths } from "astro";
+import Article from "@components/Article";
+import { getCollection } from "astro:content";
+import { getEntry } from "astro:content";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const articles = await getCollection("articles");
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { slug: article.slug },
+  }));
+};
+
+const article = await getEntry("articles", Astro.props.slug);
+if (!article) throw Error("getStaticPaths mismatch for articles");
+const { Content } = await article.render();
+---
+
+<BlogLayout>
+  <Article article={article.data}>
+    <Content />
+  </Article>
+</BlogLayout>

@@ -1,3 +1,29 @@
 ---
-Astro.redirect("/blog/");
+import Article from "@components/Article";
+import BlogLayout from "@layouts/BlogLayout.astro";
+import Preview from "@components/Preview";
+import { getCollection } from "astro:content";
+
+const articles = await getCollection("articles");
 ---
+
+<BlogLayout>
+  <h1 class="text-4xl font-black">Blog</h1>
+  <div class="flex flex-col gap-5 my-5 items-center">
+    {
+      articles.map((article) => {
+        return (
+          <Preview slug={article.slug} client:load>
+            <Article sm article={article.data}>
+              <>
+                {article.render().then(({ Content }) => (
+                  <Content />
+                ))}
+              </>
+            </Article>
+          </Preview>
+        );
+      })
+    }
+  </div>
+</BlogLayout>

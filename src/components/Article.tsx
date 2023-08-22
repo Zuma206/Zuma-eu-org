@@ -1,23 +1,25 @@
+import type { PropsWithChildren } from "react";
 import BlogTag from "./BlogTag";
+import type { z } from "astro:content";
+import type { articleSchema } from "@lib/schemas";
 
-export default function Article() {
+type Props = PropsWithChildren & {
+  article: z.infer<typeof articleSchema>;
+  sm?: boolean;
+};
+
+export default function Article({ children, article, sm }: Props) {
   return (
     <div>
-      <div className="flex flex-col gap-5 my-5">
-        <h1 className="text-4xl">Article title</h1>
+      <div className={`flex flex-col ${sm ? "gap-3 my-3" : "gap-5 my-5"}`}>
+        <h1 className={sm ? "text-2xl" : "text-4xl"}>{article.title}</h1>
         <div className="flex gap-2">
-          <BlogTag>Web</BlogTag>
-          <BlogTag>Typescript</BlogTag>
+          {article.tags.map((tag, index) => (
+            <BlogTag key={index}>{tag}</BlogTag>
+          ))}
         </div>
       </div>
-      <div className="prose prose-invert">
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti,
-          iusto culpa ab quidem voluptas quam natus excepturi deserunt voluptate
-          voluptatem architecto exercitationem porro? Sapiente itaque odio
-          velit, minima obcaecati excepturi!
-        </p>
-      </div>
+      <div className="prose prose-invert">{children}</div>
     </div>
   );
 }
