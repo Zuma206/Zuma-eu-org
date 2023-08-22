@@ -4,8 +4,6 @@ tags:
   - Astro
   - Static
   - React
-  - Cloudflare
-  - Pages
 ---
 
 This blog post will detail the creation of my new static personal webiste, which includes a simple blog. It's what you're seeing right now.
